@@ -1,0 +1,111 @@
+.header {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(8,8,8,0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  height: 64px; display: flex; align-items: center; justify-content: space-between;
+}
+.logo { display: flex; align-items: baseline; gap: 6px; }
+.logoAmg { font-family: 'Space Grotesk',sans-serif; font-size: 22px; font-weight: 700; color: var(--teal); letter-spacing: 0.08em; }
+.logoF1  { font-family: 'Space Grotesk',sans-serif; font-size: 11px; font-weight: 500; color: var(--muted); letter-spacing: 0.14em; }
+
+.nav { display: flex; align-items: center; gap: 28px; }
+.nav > a {
+  font-size: 13px; font-weight: 500; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--muted); transition: color 0.2s;
+}
+.nav > a:hover, .nav > a.active { color: var(--white); }
+
+.cartBtn { position: relative; color: var(--muted); display: flex; align-items: center; transition: color 0.2s; }
+.cartBtn:hover { color: var(--white); }
+
+.iconToggle {
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface2); border: 1px solid var(--border);
+  color: var(--muted); border-radius: 20px;
+  width: 34px; height: 34px; font-size: 11px; font-weight: 700;
+  font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.02em;
+  transition: color 0.2s, border-color 0.2s;
+}
+.iconToggle:hover { color: var(--teal); border-color: var(--teal); }
+
+.mobileToggles { display: flex; gap: 10px; padding: 10px 24px; }
+.badge {
+  position: absolute; top: -8px; right: -8px;
+  background: var(--teal); color: #000;
+  font-size: 10px; font-weight: 700;
+  width: 18px; height: 18px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* User */
+.userWrap { position: relative; }
+.userBtn {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 20px; padding: 5px 12px 5px 5px;
+  color: var(--white); font-size: 13px; font-weight: 500;
+  transition: border-color 0.2s;
+}
+.userBtn:hover { border-color: var(--teal); }
+.avatar {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--teal); color: #000;
+  font-family: 'Space Grotesk',sans-serif; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.userName { max-width: 80px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.dropdown {
+  position: absolute; top: calc(100% + 8px); right: 0;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: var(--rl); overflow: hidden;
+  min-width: 180px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+.dropdown a, .dropdown button {
+  display: block; width: 100%; padding: 12px 16px;
+  font-size: 14px; color: var(--white); background: none;
+  text-align: left; border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.dropdown a:last-child, .dropdown button:last-child { border-bottom: none; }
+.dropdown a:hover, .dropdown button:hover { background: var(--border); }
+
+.loginBtn { font-size: 12px !important; padding: 8px 16px !important; }
+
+/* Burger */
+.burger { display: none; background: none; padding: 8px; flex-direction: column; gap: 5px; }
+.burger span {
+  display: block; width: 22px; height: 2px;
+  background: var(--white); border-radius: 2px;
+  transition: all 0.3s;
+  position: relative;
+}
+.burger span::before, .burger span::after {
+  content: ''; position: absolute; left: 0;
+  width: 22px; height: 2px; background: var(--white); border-radius: 2px;
+  transition: all 0.3s;
+}
+.burger span::before { top: -7px; }
+.burger span::after  { top: 7px; }
+
+.mobileMenu {
+  display: flex; flex-direction: column;
+  background: var(--surface); border-top: 1px solid var(--border);
+  padding: 8px 0;
+}
+.mobileMenu a, .mobileMenu button {
+  padding: 14px 24px; font-size: 15px; color: var(--white);
+  background: none; text-align: left; width: 100%;
+  border-bottom: 1px solid var(--border); transition: background 0.15s;
+}
+.mobileMenu a:hover, .mobileMenu button:hover { background: var(--surface2); }
+
+@media (max-width: 700px) {
+  .nav { display: none; }
+  .burger { display: flex; }
+}

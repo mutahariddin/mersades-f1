@@ -1,0 +1,40 @@
+.page { min-height: 100vh; padding: 48px 0 80px; }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+.title { font-size: 36px; font-weight: 700; margin-bottom: 40px; }
+.layout { display: grid; grid-template-columns: 1fr 360px; gap: 40px; align-items: start; }
+@media (max-width: 768px) { .layout { grid-template-columns: 1fr; } }
+
+.sectionTitle { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
+.form { display: flex; flex-direction: column; gap: 14px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 480px) { .grid2 { grid-template-columns: 1fr; } }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); }
+.field textarea { resize: none; }
+
+/* Payment methods */
+.payMethods { display: flex; flex-direction: column; gap: 10px; }
+.payOption {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: var(--rl); padding: 14px 16px; cursor: pointer;
+  transition: border-color 0.2s;
+}
+.payOption input { display: none; }
+.payOption:hover { border-color: var(--border2); }
+.payActive { composes: payOption; border-color: var(--teal); background: rgba(0,210,190,0.04); }
+.payIcon { font-size: 24px; flex-shrink: 0; }
+.payLabel { font-size: 14px; font-weight: 600; }
+.payHint { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+.submitBtn { width: 100%; justify-content: center; padding: 14px !important; font-size: 14px !important; margin-top: 8px; }
+
+/* Summary */
+.summary { background: var(--surface); border: 1px solid var(--border); border-radius: var(--rl); padding: 28px; position: sticky; top: 80px; display: flex; flex-direction: column; gap: 14px; }
+.orderItem { display: flex; align-items: center; gap: 12px; }
+.orderItem img { width: 48px; height: 48px; object-fit: cover; border-radius: var(--r); flex-shrink: 0; }
+.orderInfo { flex: 1; font-size: 13px; font-weight: 500; }
+.orderSize { font-size: 11px; color: var(--teal); margin-top: 2px; }
+.orderMeta { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.orderItem > span { font-size: 14px; font-weight: 600; flex-shrink: 0; }
+.totalLine { display: flex; justify-content: space-between; font-family: 'Space Grotesk',sans-serif; font-size: 20px; font-weight: 700; border-top: 1px solid var(--border); padding-top: 14px; margin-top: 4px; }

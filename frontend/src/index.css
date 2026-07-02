@@ -1,0 +1,142 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root,
+[data-theme="dark"] {
+  --black:    #080808;
+  --surface:  #111111;
+  --surface2: #181818;
+  --border:   #252525;
+  --border2:  #333;
+  --teal:     #00d2be;
+  --teal-dim: #00a898;
+  --silver:   #b8b8b8;
+  --white:    #f0f0f0;
+  --muted:    #777;
+  --error:    #ff4f4f;
+  --success:  #22c55e;
+  --r:  4px;
+  --rl: 10px;
+}
+
+[data-theme="light"] {
+  --black:    #f4f4f4;
+  --surface:  #ffffff;
+  --surface2: #f0f0f0;
+  --border:   #e2e2e2;
+  --border2:  #d0d0d0;
+  --teal:     #00a898;
+  --teal-dim: #008f81;
+  --silver:   #555555;
+  --white:    #111111;
+  --muted:    #6b6b6b;
+  --error:    #d92f2f;
+  --success:  #16a34a;
+  --r:  4px;
+  --rl: 10px;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Smooth theme transition for surfaces, borders and text across the app */
+body, header, main, footer, div, section, article, aside, nav,
+input, select, textarea, button, a, img, span, p, h1, h2, h3, h4, h5 {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+h1,h2,h3,h4,h5 { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
+a { color: inherit; text-decoration: none; }
+button { font-family: 'DM Sans', sans-serif; cursor: pointer; border: none; outline: none; }
+input, select, textarea { font-family: 'DM Sans', sans-serif; }
+img { display: block; max-width: 100%; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+/* Utility buttons */
+.btn {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 11px 24px;
+  border-radius: var(--r);
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-teal { background: var(--teal); color: #000; }
+.btn-teal:hover { background: #00f0d8; transform: translateY(-1px); }
+.btn-teal:active { transform: translateY(0); }
+.btn-teal:disabled { background: var(--border); color: var(--muted); transform: none; cursor: not-allowed; }
+.btn-ghost { background: transparent; color: var(--white); border: 1px solid var(--border2); }
+.btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+.btn-outline-teal { background: transparent; color: var(--teal); border: 1px solid var(--teal); }
+.btn-outline-teal:hover { background: rgba(0,210,190,0.08); }
+
+/* Input base */
+.input {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  color: var(--white);
+  font-size: 15px;
+  padding: 12px 14px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.input::placeholder { color: #444; }
+.input:focus { border-color: var(--teal); }
+
+/* Spinner */
+.spinner {
+  width: 28px; height: 28px;
+  border: 2px solid var(--border);
+  border-top-color: var(--teal);
+  border-radius: 50%;
+  animation: spin 0.65s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Skeleton */
+.skeleton {
+  background: linear-gradient(90deg, var(--surface2) 25%, var(--border) 50%, var(--surface2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: var(--r);
+}
+@keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+
+/* Toast container */
+#toast-root {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Prevent accidental horizontal scroll and ensure page containers have safe padding.
+   Only html gets overflow-x here: setting it on both html and body makes each one an
+   independent scroll container (overflow-x forces the other axis to auto), which breaks
+   position: sticky in the header since it ends up sticking to the wrong scroll context. */
+html { overflow-x: hidden; }
+.inner, .container, .page { box-sizing: border-box; }
+
+/* Give a consistent safe horizontal padding for narrow viewports */
+@media (max-width: 1200px) {
+  .inner, .container, .page { padding-left: 24px; padding-right: 24px; }
+}

@@ -1,0 +1,33 @@
+.page { min-height: 100vh; padding: 48px 0 80px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.title { font-size: 36px; font-weight: 700; margin-bottom: 40px; }
+.layout { display: grid; grid-template-columns: 1fr 320px; gap: 40px; align-items: start; }
+@media (max-width: 768px) { .layout { grid-template-columns: 1fr; } }
+
+.items { display: flex; flex-direction: column; gap: 14px; }
+.item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--rl); padding: 16px; display: flex; align-items: center; gap: 16px; transition: border-color 0.2s; }
+.item:hover { border-color: var(--border2); }
+.item img { width: 72px; height: 72px; object-fit: cover; border-radius: var(--r); flex-shrink: 0; }
+.info { flex: 1; min-width: 0; }
+.itemName { font-weight: 500; font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.itemSize { font-size: 12px; color: var(--teal); margin-top: 3px; }
+.itemPrice { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+.qty { display: flex; align-items: center; border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
+.qty button { background: var(--surface2); color: var(--white); border: none; width: 32px; height: 32px; font-size: 16px; cursor: pointer; transition: background 0.15s; }
+.qty button:hover { background: var(--border); }
+.qty span { width: 36px; text-align: center; font-size: 14px; font-weight: 500; }
+
+.lineTotal { font-family: 'Space Grotesk',sans-serif; font-size: 17px; font-weight: 600; width: 60px; text-align: right; flex-shrink: 0; }
+.remove { background: transparent; color: var(--muted); border: none; font-size: 13px; padding: 4px 8px; cursor: pointer; transition: color 0.2s; flex-shrink: 0; }
+.remove:hover { color: var(--error); }
+
+.summary { background: var(--surface); border: 1px solid var(--border); border-radius: var(--rl); padding: 28px; position: sticky; top: 80px; }
+.summary h3 { font-size: 20px; font-weight: 600; margin-bottom: 20px; }
+.row { display: flex; justify-content: space-between; font-size: 14px; color: var(--muted); padding: 8px 0; border-bottom: 1px solid var(--border); }
+.totalRow { font-family: 'Space Grotesk',sans-serif; font-size: 18px; font-weight: 700; color: var(--white); border-bottom: none; margin-top: 4px; }
+
+.empty { text-align: center; padding: 120px 0; }
+.emptyIcon { font-size: 64px; display: block; margin-bottom: 16px; }
+.empty h2 { font-size: 28px; margin-bottom: 8px; }
+.empty p { color: var(--muted); }
